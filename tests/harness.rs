@@ -11,7 +11,7 @@ mod tests {
     abigen!(
         Contract(
             name = "MyContract",
-            abi = "/Users/mad/fuel/cajon/test-bad-shit/my-fuel-project/out/debug/my-fuel-project-abi.json",
+            abi = "out/debug/my-fuel-project-abi.json",
         )
     );
 
