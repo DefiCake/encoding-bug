@@ -1,42 +1,16 @@
 contract;
 
-use std::inputs::input_message_sender;
+use std::math::*;
 
 abi MyContract {
-    #[payable]
-    #[storage(read, write)]
-    fn test_function(to: u64) -> u64;
+    fn test_function(dividend: u256, divisor: u256) -> u256;
 }
 
-abi MessageReceiver {
-    #[payable]
-    #[storage(read, write)]
-    fn process_message(msg_idx: u64);
-}
-
+const TEN: u256 = 0x0a_u256;
 
 impl MyContract for Contract {
-    #[payable]
-    #[storage(read, write)]
-    fn test_function(msg_idx: u64) -> u64 {
-        let input_sender = input_message_sender(msg_idx);
-        log(input_sender);
-
-        0u64
+    fn test_function(dividend: u256, divisor: u256) -> u256 {
+        let pow_op = TEN.pow(9u32); // Comment this line and the test passes
+        dividend % divisor
     }
 }
-
-impl MessageReceiver for Contract {
-    #[payable]
-    #[storage(read, write)]
-    fn process_message(msg_idx: u64) {
-        let input_sender = input_message_sender(msg_idx);
-        log(input_sender);
-    }
-}
-
-// predicate;
-
-// fn main() -> bool {
-//     true
-// }
