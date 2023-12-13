@@ -12,7 +12,7 @@ rust-version = "1.72.0"
 publish = false
 
 [dependencies]
-fuel-core-types = { version = "0.21.0", default-features = false }
+fuel-core-types = { version = "0.22.0", default-features = false }
 fuels = { version = "0.53.0", features = ["fuel-core-lib"] }
 fuel-asm = "0.43.1"
 fuel-tx = "0.43.1"
